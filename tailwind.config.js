@@ -5,7 +5,11 @@ module.exports = {
     flex: {
       '3': '0 0 33%'
     },
-    extend: {},
+    extend: {
+      lineHeight: {
+        'title': '3rem'
+      }
+    },
   },
   variants: {
     extend: {},

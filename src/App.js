@@ -12,14 +12,20 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [displayTitle, setDisplayTitle] = useState('')
   const [dropValue, setDropValue] = useState('')
+  const [sort, setSort] = useState('')
+  const [sortValue, setSortValue] = useState('')
+  const [acendingValue, setAcendingValue] = useState('')
+  const [acending, setAcending] = useState('')
 
 
   const getTopAnime = async () => {
     setLoading(true)
     setDisplayTitle('Top Anime')
+    setSortValue('Order by...')
    await Axios.get('https://api.jikan.moe/v3/top/anime/1/bypopularity').then((response) => {
+    console.log(response)
+      setAnimeList(response.data.top)
       
-      setAnimeList(response.data.top.slice(0, 9))
       setLoading(false)
     })
     .catch((error) => {
@@ -30,9 +36,11 @@ function App() {
   const getSeasonalAnime = async () => {
     setAnimeList([])
     setLoading(true)
+    setDisplayTitle('Seasonal Anime')
+    setSortValue('Order by...')
     await Axios.get('https://api.jikan.moe/v3/season/2021/spring').then((response) => {
       
-      setAnimeList(response.data.anime.slice(0, 9))
+      setAnimeList(response.data.anime)
       setLoading(false)
     })
   }
@@ -40,8 +48,10 @@ function App() {
   const getUpcomingAnime = async () => {
     setAnimeList([])
     setLoading(true)
+    setDisplayTitle('Upcoming Anime')
+    setSortValue('Order by...')
     await Axios.get('https://api.jikan.moe/v3/season/later').then((response) => {
-      setAnimeList(response.data.anime.slice(0, 9))
+      setAnimeList(response.data.anime)
       setLoading(false)
     })
   }
@@ -55,7 +65,8 @@ function App() {
     setAnimeList([])
     setDropValue(search)
     setLoading(true)
-    await Axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=9`).then((response) => {
+    setSortValue('Order by...')
+    await Axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=50`).then((response) => {
       
       setAnimeList(response.data.results)
       setDisplayTitle(`Search Results`)
@@ -67,12 +78,12 @@ function App() {
   }
 
   useEffect(() => {
-    
+    getTopAnime()
   }, [])
 
   
   return (
-    <div >
+    <div className='bg-gray-200'>
       <Header />
       <MainContent 
         anime={anime}
@@ -90,6 +101,14 @@ function App() {
         setDropValue={setDropValue}
         getSeasonalAnime={getSeasonalAnime}
         getUpcomingAnime={getUpcomingAnime}
+        sort={sort}
+        setSort={setSort}
+        sortValue={sortValue}
+        setSortValue={setSortValue}
+        acending={acending}
+        setAcending={setAcending}
+        acendingValue={acendingValue}
+        setAcendingValue={setAcendingValue}
       />
     </div>
   );
