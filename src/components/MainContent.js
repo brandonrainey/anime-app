@@ -180,7 +180,7 @@ export default function MainContent(props) {
         <div className='bg-grey-400'>
 
             
-                <div className='flex mb-12'>
+                <div className='flex mb-12 topContainer'>
                 <div className='search-box'>
                     <form 
                         className='mt-6 ml-8'
@@ -198,9 +198,9 @@ export default function MainContent(props) {
                         />
                     </form>
                 </div>
-                    <div className='ml-auto mt-auto pr-12 outline-none'>
+                    <div className='ml-auto mt-auto pr-12 outline-none myCategory'>
                         <select className='w-40' onChange={checkDropdown} value={props.dropValue}>
-                            <option value='Select...' name='select'>Select...</option>
+                            <option value='Select...' name='select'>Category...</option>
                             <option value='Top Anime' name='top'>Top Anime</option>
                             <option value='Seasonal Anime' name='seasonal'>Seasonal Anime</option>
                             <option value='Upcoming Anime' name='upcoming'>Upcoming Anime</option>
@@ -238,9 +238,9 @@ export default function MainContent(props) {
                 </div>
             
             
-            <div className='flex justify-center bg-grey-400'>
+            <div className='flex justify-center bg-grey-400 cardCont'>
                 
-               <div className='flex flex-wrap justify-center flex-row w-2/3 ' >
+               <div className='flex flex-wrap justify-center flex-row w-2/3 cardz' >
                     <LoadingScreen
                         loading={props.loading} 
                     /> 

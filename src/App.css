@@ -141,7 +141,29 @@
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 
+@media (max-width: 500px) {
+  html,body{
+    overflow-x: hidden;
+}
+.cardz {
+  width: 100%;
+}
+.cardCont {
+  width: 100%
+}
 
+.topContainer {
+  flex-direction: column;
+}
+
+.myHeader {
+  height: 175px;
+  background-size: 100% 200px !important;
+}
+
+
+
+}
 
 
 

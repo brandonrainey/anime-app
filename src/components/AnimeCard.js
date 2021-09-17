@@ -7,7 +7,7 @@ export default function AnimeCard({anime}) {
 
 
     return (
-        <div className='p-2 flex-3  pb-8 flex justify-center'>
+        <div className='p-2 flex-3  pb-8 flex justify-center myCard'>
             <a 
 				key={anime.mal_id}
 				href={anime.url} 
