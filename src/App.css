@@ -1,3 +1,7 @@
+:root {
+  --tw-bg-opacity: 1;
+}
+
 .lds-roller {
   display: inline-block;
   position: relative;
@@ -167,4 +171,8 @@
   .myCategory {
     padding-top: 6px;
   }
+}
+
+html {
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }

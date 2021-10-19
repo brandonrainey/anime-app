@@ -24,7 +24,6 @@ function App() {
       .then((response) => {
         console.log(response);
         setAnimeList(response.data.top);
-
         setLoading(false);
       })
       .catch((error) => {
