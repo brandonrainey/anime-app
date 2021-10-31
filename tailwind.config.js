@@ -10,6 +10,10 @@ module.exports = {
         'title': '3rem'
       }
     },
+    fontFamily: {
+      'custom': ['Irish Grover'],
+      'custom2': ['Work Sans'],
+    }
   },
   variants: {
     extend: {},

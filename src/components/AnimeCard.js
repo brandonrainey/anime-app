@@ -11,7 +11,7 @@ export default function AnimeCard({ anime }) {
           <img
             src={anime.image_url}
             alt={anime.mal_id}
-            className="rounded-md shadow-xl"
+            className="rounded-md shadow-2xl"
           />
         </figure>
         <h3 className="font-medium">{anime.title}</h3>

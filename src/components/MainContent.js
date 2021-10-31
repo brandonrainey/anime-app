@@ -189,7 +189,7 @@ export default function MainContent(props) {
         </div>
         <div className="ml-auto mt-auto pr-12 outline-none myCategory">
           <select
-            className="w-40 p-1 rounded"
+            className="w-40 p-1 rounded shadow"
             onChange={checkDropdown}
             value={props.dropValue}
           >
@@ -210,13 +210,13 @@ export default function MainContent(props) {
       </div>
 
       <div className="flex justify-center items-center flex-col mb-4">
-        <div className="text-center text-2xl mb-6 w-60 bg-gray-400 rounded-xl h-9 shadow-lg">
+        <h1 className="text-center text-2xl mb-6 w-60 bg-gray-400 rounded-xl h-9 shadow-lg font-semibold font-custom">
           {props.displayTitle}
-        </div>
+        </h1>
         <div className="flex ml-auto">
           <div className="ml-auto mt-auto pr-4 outline-none">
             <select
-              className="w-24 p-1 rounded"
+              className="w-24 p-1 rounded shadow"
               onChange={checkAcending}
               value={props.acending}
             >
@@ -233,7 +233,7 @@ export default function MainContent(props) {
           </div>
           <div className="ml-auto mt-auto pr-12 outline-none w-24">
             <select
-              className="w-24 p-1 rounded"
+              className="w-24 p-1 rounded shadow"
               onChange={checkSort}
               value={props.sortValue}
             >

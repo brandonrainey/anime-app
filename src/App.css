@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+
+
 :root {
   --tw-bg-opacity: 1;
+  
 }
 
 .lds-roller {
@@ -146,6 +152,17 @@
   html,
   body {
     overflow-x: hidden;
+  }
+
+  .btn-search {
+
+  }
+
+  .input-search {
+    width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   }
   .cardz {
     width: 100%;

@@ -36,7 +36,7 @@ function App() {
     setLoading(true);
     setDisplayTitle("Seasonal Anime");
     setSortValue("Order by...");
-    await Axios.get("https://api.jikan.moe/v3/season/2021/spring").then(
+    await Axios.get("https://api.jikan.moe/v3/season/2022/spring").then(
       (response) => {
         setAnimeList(response.data.anime);
         setLoading(false);
