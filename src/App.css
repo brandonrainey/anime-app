@@ -100,7 +100,7 @@
 }
 .input-search {
   height: 50px;
-  width: 50px;
+  width: 300px;
   border-style: none;
   padding: 10px;
   font-size: 18px;
@@ -108,7 +108,7 @@
   outline: none;
   border-radius: 25px;
   transition: all 0.5s ease-in-out;
-  background-color: #22a6b3;
+  background-color: #9caeb1;
   padding-right: 40px;
   color: rgb(0, 0, 0);
 }
@@ -148,14 +148,20 @@
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
+.cardNumber {
+  font-weight: 500;
+  font-size: 20px;
+  padding-bottom: 6px;
+}
+
+.myHeader {
+
+}
+
 @media (max-width: 500px) {
   html,
   body {
     overflow-x: hidden;
-  }
-
-  .btn-search {
-
   }
 
   .input-search {
@@ -187,6 +193,16 @@
 
   .myCategory {
     padding-top: 6px;
+  }
+
+  .displayTitle {
+    order: 2;
+  }
+
+  .sortBar {
+    order: 1;
+    margin-bottom: 40px;
+    margin-right: 16%;
   }
 }
 

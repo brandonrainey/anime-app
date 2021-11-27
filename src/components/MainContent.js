@@ -210,17 +210,17 @@ export default function MainContent(props) {
       </div>
 
       <div className="flex justify-center items-center flex-col mb-4">
-        <h1 className="text-center text-2xl mb-6 w-60 bg-gray-400 rounded-xl h-9 shadow-lg font-semibold font-custom">
+        <h1 className="flex text-center text-2xl mb-6 w-60 bg-gray-100 rounded-xl h-10 shadow-lg font-semibold font-custom justify-center pt-1 displayTitle">
           {props.displayTitle}
         </h1>
-        <div className="flex ml-auto">
+        <div className="flex ml-auto mr-12 sortBar">
           <div className="ml-auto mt-auto pr-4 outline-none">
             <select
               className="w-24 p-1 rounded shadow"
               onChange={checkAcending}
               value={props.acending}
             >
-              <option value="Select..." name="select">
+              <option value="Select..." name="select" className='options'>
                 Sort by...
               </option>
               <option value="Acending" name="top">
@@ -261,7 +261,7 @@ export default function MainContent(props) {
         <div className="flex flex-wrap justify-center flex-row w-2/3 cardz">
           <LoadingScreen loading={props.loading} />
           {props.animeList.map((item) => (
-            <AnimeCard anime={item} key={item.mal_id} />
+            <AnimeCard anime={item} key={item.mal_id}  sortValue={props.sortValue} dropValue={props.dropValue}/>
           ))}
         </div>
       </div>
