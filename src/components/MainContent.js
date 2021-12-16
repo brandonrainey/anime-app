@@ -163,7 +163,7 @@ export default function MainContent(props) {
       <div className="flex mb-12 topContainer">
         <div className="search-box">
           <form className="mt-6 ml-8" onSubmit={props.HandleSearch}>
-            <button className="btn-search" name='search button'>
+            <button className="btn-search" name='search button icon'>
               <i className="flex justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
