@@ -6,10 +6,13 @@ export default function MainContent(props) {
   const checkDropdown = (e) => {
     props.setDropValue(e.target.value);
     if (e.target.value === "Top Anime") {
+      props.setPage(1);
       props.getTopAnime();
     } else if (e.target.value === "Seasonal Anime") {
+      props.setPage(1);
       props.getSeasonalAnime();
     } else if (e.target.value === "Upcoming Anime") {
+      props.setPage(1);
       props.getUpcomingAnime();
     }
     console.log(props.dropValue);
@@ -258,7 +261,7 @@ export default function MainContent(props) {
       </div>
 
       <div className="flex justify-center bg-grey-400 cardCont">
-        <div className="flex flex-wrap justify-center flex-row w-2/3 cardz">
+        <div className="flex flex-wrap justify-center flex-row w-3/4 cardz">
           <LoadingScreen loading={props.loading} />
           {props.animeList.map((item) => (
             <AnimeCard anime={item} key={item.mal_id}  sortValue={props.sortValue} dropValue={props.dropValue}/>

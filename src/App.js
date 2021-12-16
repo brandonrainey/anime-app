@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Axios from "axios";
 import "./App.css";
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [anime, setAnime] = useState([]);
   const [search, setSearch] = useState("");
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [displayTitle, setDisplayTitle] = useState("");
+  const [displayTitle, setDisplayTitle] = useState("Top Anime");
   const [dropValue, setDropValue] = useState("");
   const [sort, setSort] = useState("");
   const [sortValue, setSortValue] = useState("");
   const [acendingValue, setAcendingValue] = useState("");
   const [acending, setAcending] = useState("");
+  const [page, setPage] = useState(1)
+  const topRef = useRef()
+
+  const scrollToTop = () => {
+    topRef.current.scrollIntoView({ block: "start" });
+  };
 
   const getTopAnime = async () => {
     setLoading(true);
+
+    
     setDisplayTitle("Top Anime");
     setSortValue("Order by...");
-    await Axios.get("https://api.jikan.moe/v3/top/anime/1/bypopularity")
+    await Axios.get(`https://api.jikan.moe/v3/top/anime/${page}/bypopularity`)
       .then((response) => {
         console.log(response);
         setAnimeList(response.data.top);
@@ -59,6 +68,7 @@ function App() {
 
   const HandleSearch = (e) => {
     e.preventDefault();
+    
     FetchAnime(search);
   };
 
@@ -68,7 +78,7 @@ function App() {
     setLoading(true);
     setSortValue("Order by...");
     await Axios.get(
-      `https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=50`
+      `https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=50&page=${page}`
     )
       .then((response) => {
         setAnimeList(response.data.results);
@@ -80,12 +90,24 @@ function App() {
       });
   };
 
+  
   useEffect(() => {
-    getTopAnime();
-  }, []);
+    if (displayTitle === 'Top Anime') {
+      getTopAnime();
+      return
+    }
+    if (search) {
+      FetchAnime()
+    }
+    console.log(animeList)
+  }, [page]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [search])
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200" ref={topRef}>
       <Header />
       <MainContent
         anime={anime}
@@ -111,6 +133,14 @@ function App() {
         setAcending={setAcending}
         acendingValue={acendingValue}
         setAcendingValue={setAcendingValue}
+        setPage={setPage}
+      />
+      <Pagination 
+        page={page}
+        setPage={setPage}
+        animeList={animeList}
+        scrollToTop={scrollToTop}
+        displayTitle={displayTitle}
       />
     </div>
   );
