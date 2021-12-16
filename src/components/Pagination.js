@@ -41,7 +41,7 @@ export default function Pagination({ page, setPage, topRef, animeList, scrollToT
           className="items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
           disabled={disabledPrev}
           onClick={handleClickPrev}
-          name='previous page'
+          aria-label='previous page'
         >
           prev
         </button>
@@ -54,7 +54,7 @@ export default function Pagination({ page, setPage, topRef, animeList, scrollToT
           className="items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
           disabled={disabledNext}
           onClick={handleClickNext}
-          name='next page'
+          aria-label='next page'
         >
           next
         </button>
