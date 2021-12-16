@@ -16,7 +16,7 @@ export default function AnimeCard({ anime, sortValue, dropValue }) {
             className="rounded-md shadow-2xl"
           />
         </figure>
-        <h3 className="font-medium">{anime.title}</h3>
+        <h1 className="font-medium">{anime.title}</h1>
         <a
           href={`https://www.crunchyroll.com/search?from=&q=${newTitle}`}
           target="_blank"

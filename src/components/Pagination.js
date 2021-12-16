@@ -41,18 +41,20 @@ export default function Pagination({ page, setPage, topRef, animeList, scrollToT
           className="items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
           disabled={disabledPrev}
           onClick={handleClickPrev}
+          name='previous page'
         >
           prev
         </button>
         <nav>
-          <ul className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+          <div className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
             {page}
-          </ul>
+          </div>
         </nav>
         <button
           className="items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
           disabled={disabledNext}
           onClick={handleClickNext}
+          name='next page'
         >
           next
         </button>
