@@ -47,6 +47,7 @@ function App() {
     setSortValue("Order by...");
     await Axios.get("https://api.jikan.moe/v3/season/2022/spring").then(
       (response) => {
+        console.log(response);
         setAnimeList(response.data.anime);
         setLoading(false);
       }
@@ -58,8 +59,9 @@ function App() {
     setLoading(true);
     setDisplayTitle("Upcoming Anime");
     setSortValue("Order by...");
-    await Axios.get("https://api.jikan.moe/v3/season/later").then(
+    await Axios.get(`https://api.jikan.moe/v3/season/later`).then(
       (response) => {
+        console.log(response);
         setAnimeList(response.data.anime);
         setLoading(false);
       }
