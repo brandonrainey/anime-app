@@ -6,7 +6,7 @@ export default function AnimeCard({ anime, sortValue, dropValue }) {
 
   return (
     
-      <div className="p-2 flex-3  pb-8 flex myCard flex-col items-center">
+      <div className={`p-2 flex-3  pb-8 flex myCard flex-col items-center`}>
         <div className='cardNumber'>{sortValue === 'Score' ? anime.score : dropValue === 'Top Anime' || dropValue === '' ? `#${anime.rank}` : ''}</div>
       <a key={anime.mal_id} href={anime.url} target="_blank" rel="noreferrer">
         <figure className="flex justify-center transform duration-200 hover:scale-105 pb-4">

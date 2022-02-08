@@ -162,7 +162,7 @@ export default function MainContent(props) {
     <div className="bg-grey-400">
       <div className="flex mb-12 topContainer">
         <div className="search-box">
-          <form className="mt-6 ml-8" onSubmit={props.HandleSearch}>
+          <form className="mt-6 ml-8 searchForm" onSubmit={props.HandleSearch}>
             <button className="btn-search" aria-label='search button icon'>
               <i className="flex justify-center">
                 <svg
@@ -234,7 +234,7 @@ export default function MainContent(props) {
               </option>
             </select>
           </div>
-          <div className="ml-auto mt-auto pr-12 outline-none w-24">
+          <div className="ml-auto mt-auto pr-12 outline-none w-24 sort2">
             <select
               className="w-24 p-1 rounded shadow"
               onChange={checkSort}

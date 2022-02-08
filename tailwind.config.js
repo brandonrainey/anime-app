@@ -3,7 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     flex: {
-      '3': '0 0 20%'
+      '3': '0 0 20%',
+      'mobile': '0 0 33%'
     },
     extend: {
       lineHeight: {
