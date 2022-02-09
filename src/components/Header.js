@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import Banner from "./banner4.png";
+import Banner from "../images/banner4.png";
 
 
 export default function Header() {

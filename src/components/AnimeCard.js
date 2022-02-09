@@ -1,13 +1,18 @@
 import React from "react";
-import CRIcon from "./Crunchyroll-logo.png";
+import CRIcon from "../images/Crunchyroll-logo.png";
 
 export default function AnimeCard({ anime, sortValue, dropValue }) {
   const newTitle = anime.title.replace(/\s+/g, "-").toLowerCase();
 
   return (
-    
-      <div className={`p-2 flex-3  pb-8 flex myCard flex-col items-center`}>
-        <div className='cardNumber'>{sortValue === 'Score' ? anime.score : dropValue === 'Top Anime' || dropValue === '' ? `#${anime.rank}` : ''}</div>
+    <div className={`p-2 flex-3  pb-8 flex myCard flex-col items-center`}>
+      <div className="cardNumber">
+        {sortValue === "Score"
+          ? anime.score
+          : dropValue === "Top Anime" || dropValue === ""
+          ? `#${anime.rank}`
+          : ""}
+      </div>
       <a key={anime.mal_id} href={anime.url} target="_blank" rel="noreferrer">
         <figure className="flex justify-center transform duration-200 hover:scale-105 pb-4">
           <img
@@ -28,10 +33,5 @@ export default function AnimeCard({ anime, sortValue, dropValue }) {
         </a>
       </a>
     </div>
-    
-
-    
-
-
   );
 }

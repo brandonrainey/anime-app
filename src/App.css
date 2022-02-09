@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
 
 :root {
   --tw-bg-opacity: 1;
-  
 }
 
 .lds-roller {
@@ -155,11 +153,11 @@
 }
 
 .myHeader {
-  font-family: 'Rowdies', Sans-Serif;
+  font-family: "Rowdies", Sans-Serif;
 }
 
 .displayTitle {
-  font-family: 'Rowdies', Sans-Serif;
+  font-family: "Rowdies", Sans-Serif;
 }
 
 @media (max-width: 500px) {
@@ -170,9 +168,9 @@
 
   .input-search {
     width: 100%;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   }
   .cardz {
     width: 100%;
@@ -202,7 +200,6 @@
     padding-top: 6px;
     margin-right: auto;
     padding-right: 0;
-    
   }
 
   .displayTitle {
@@ -214,7 +211,6 @@
     margin-bottom: 40px;
     margin-right: auto;
     width: 100%;
-    
   }
 
   .myCard {
@@ -223,7 +219,7 @@
 
   .searchForm {
     display: flex;
-    margin:0;
+    margin: 0;
     width: 100vw;
   }
 

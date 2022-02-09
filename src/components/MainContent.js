@@ -151,11 +151,6 @@ export default function MainContent(props) {
     if (props.sortValue === "Date") {
       sortByDate();
     }
-
-    // if (props.sortValue === 'Score') {
-    //     sortByValue()
-
-    // }
   }, [props.acendingValue, props.sortValue]);
 
   return (
@@ -163,7 +158,7 @@ export default function MainContent(props) {
       <div className="flex mb-12 topContainer">
         <div className="search-box">
           <form className="mt-6 ml-8 searchForm" onSubmit={props.HandleSearch}>
-            <button className="btn-search" aria-label='search button icon'>
+            <button className="btn-search" aria-label="search button icon">
               <i className="flex justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +218,7 @@ export default function MainContent(props) {
               onChange={checkAcending}
               value={props.acending}
             >
-              <option value="Select..." name="select" className='options'>
+              <option value="Select..." name="select" className="options">
                 Sort by...
               </option>
               <option value="Acending" name="top">
@@ -261,12 +256,17 @@ export default function MainContent(props) {
       </div>
 
       <div className="flex justify-center bg-grey-400 cardCont">
-        <div className="flex flex-wrap justify-center flex-row w-3/4 cardz">
+        <main className="flex flex-wrap justify-center flex-row w-3/4 cardz">
           <LoadingScreen loading={props.loading} />
           {props.animeList.map((item) => (
-            <AnimeCard anime={item} key={item.mal_id}  sortValue={props.sortValue} dropValue={props.dropValue}/>
+            <AnimeCard
+              anime={item}
+              key={item.mal_id}
+              sortValue={props.sortValue}
+              dropValue={props.dropValue}
+            />
           ))}
-        </div>
+        </main>
       </div>
     </div>
   );

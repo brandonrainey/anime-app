@@ -16,8 +16,8 @@ function App() {
   const [sortValue, setSortValue] = useState("");
   const [acendingValue, setAcendingValue] = useState("");
   const [acending, setAcending] = useState("");
-  const [page, setPage] = useState(1)
-  const topRef = useRef()
+  const [page, setPage] = useState(1);
+  const topRef = useRef();
 
   const scrollToTop = () => {
     topRef.current.scrollIntoView({ block: "start" });
@@ -26,12 +26,10 @@ function App() {
   const getTopAnime = async () => {
     setLoading(true);
 
-    
     setDisplayTitle("Top Anime");
     setSortValue("Order by...");
     await Axios.get(`https://api.jikan.moe/v3/top/anime/${page}/bypopularity`)
       .then((response) => {
-        
         setAnimeList(response.data.top);
         setLoading(false);
       })
@@ -47,7 +45,6 @@ function App() {
     setSortValue("Order by...");
     await Axios.get("https://api.jikan.moe/v3/season/2022/spring").then(
       (response) => {
-        
         setAnimeList(response.data.anime);
         setLoading(false);
       }
@@ -61,7 +58,6 @@ function App() {
     setSortValue("Order by...");
     await Axios.get(`https://api.jikan.moe/v3/season/later`).then(
       (response) => {
-        
         setAnimeList(response.data.anime);
         setLoading(false);
       }
@@ -70,7 +66,7 @@ function App() {
 
   const HandleSearch = (e) => {
     e.preventDefault();
-    
+
     FetchAnime(search);
   };
 
@@ -92,21 +88,20 @@ function App() {
       });
   };
 
-  
   useEffect(() => {
-    if (displayTitle === 'Top Anime') {
+    if (displayTitle === "Top Anime") {
       getTopAnime();
-      return
+      return;
     }
     if (search) {
-      FetchAnime()
+      FetchAnime();
     }
-    console.log(animeList)
+    console.log(animeList);
   }, [page]);
 
   useEffect(() => {
     setPage(1);
-  }, [search])
+  }, [search]);
 
   return (
     <div className="bg-gray-200" ref={topRef}>
@@ -137,7 +132,7 @@ function App() {
         setAcendingValue={setAcendingValue}
         setPage={setPage}
       />
-      <Pagination 
+      <Pagination
         page={page}
         setPage={setPage}
         animeList={animeList}
