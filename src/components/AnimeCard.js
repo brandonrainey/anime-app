@@ -4,6 +4,8 @@ import CRIcon from "../images/Crunchyroll-logo.png";
 export default function AnimeCard({ anime, sortValue, dropValue }) {
   const newTitle = anime.title.replace(/\s+/g, "-").toLowerCase();
 
+
+  
   return (
     <div className={`p-2 flex-3  pb-8 flex myCard flex-col items-center`}>
       <div className="cardNumber">
@@ -16,7 +18,7 @@ export default function AnimeCard({ anime, sortValue, dropValue }) {
       <a key={anime.mal_id} href={anime.url} target="_blank" rel="noreferrer">
         <figure className="flex justify-center transform duration-200 hover:scale-105 pb-4">
           <img
-            src={anime.image_url}
+            src={anime.images.webp.image_url}
             alt={anime.mal_id}
             className="rounded-md shadow-2xl"
           />

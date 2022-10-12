@@ -153,6 +153,8 @@ export default function MainContent(props) {
     }
   }, [props.acendingValue, props.sortValue]);
 
+  console.log(props.animeList)
+
   return (
     <div className="bg-grey-400">
       <div className="flex mb-12 topContainer">
@@ -256,8 +258,11 @@ export default function MainContent(props) {
       </div>
 
       <div className="flex justify-center bg-grey-400 cardCont">
-        <main className="flex flex-wrap justify-center flex-row w-3/4 cardz">
-          <LoadingScreen loading={props.loading} />
+        <LoadingScreen loading={props.loading} />
+        
+        <main className="flex flex-wrap justify-center flex-row w-3/4 cardz" style={{ display: props.loading ? 'none' : ''}}>
+          
+          
           {props.animeList.map((item) => (
             <AnimeCard
               anime={item}

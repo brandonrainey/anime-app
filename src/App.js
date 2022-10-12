@@ -28,9 +28,10 @@ function App() {
 
     setDisplayTitle("Top Anime");
     setSortValue("Order by...");
-    await Axios.get(`https://api.jikan.moe/v3/top/anime/${page}/bypopularity`)
+    await Axios.get(`https://api.jikan.moe/v4/top/anime?page=${page}&bypopularity`)
       .then((response) => {
-        setAnimeList(response.data.top);
+        console.log(response)
+        setAnimeList(response.data.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -43,9 +44,10 @@ function App() {
     setLoading(true);
     setDisplayTitle("Seasonal Anime");
     setSortValue("Order by...");
-    await Axios.get("https://api.jikan.moe/v3/season/2022/spring").then(
+    await Axios.get(`https://api.jikan.moe/v4/seasons/now?page=${page}`).then(
       (response) => {
-        setAnimeList(response.data.anime);
+        
+        setAnimeList(response.data.data);
         setLoading(false);
       }
     );
@@ -56,9 +58,9 @@ function App() {
     setLoading(true);
     setDisplayTitle("Upcoming Anime");
     setSortValue("Order by...");
-    await Axios.get(`https://api.jikan.moe/v3/season/later`).then(
+    await Axios.get(`https://api.jikan.moe/v4/seasons/upcoming?page=${page}`).then(
       (response) => {
-        setAnimeList(response.data.anime);
+        setAnimeList(response.data.data);
         setLoading(false);
       }
     );
@@ -76,10 +78,10 @@ function App() {
     setLoading(true);
     setSortValue("Order by...");
     await Axios.get(
-      `https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=50&page=${page}`
+      `https://api.jikan.moe/v4/anime?q=${query}&order_by=popularity&sort=asc&limit=50&page=${page}&sfw`
     )
       .then((response) => {
-        setAnimeList(response.data.results);
+        setAnimeList(response.data.data);
         setDisplayTitle(`Search Results`);
         setLoading(false);
       })
